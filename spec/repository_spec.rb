@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-require File.join(File.dirname(__FILE__), 'spec_helper')
+require_relative 'spec_helper'
 require 'webmock/rspec'
 require 'rdf/spec/repository'
 
@@ -20,6 +19,6 @@ describe SPARQL::Client::Repository do
   
       @base_repo.insert(*@statements)
     end
-    its(:count) {should == @statements.size}
+    its(:count) {is_expected.to eql @statements.size}
   end
 end
